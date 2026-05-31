@@ -15,12 +15,21 @@ const Login = () => {
   const [username, setUsername] = useState("");
   const [role, setRole] = useState<UserRole>("Viewer");
 
+  // NEW: error state
+  const [error, setError] = useState("");
+
   useEffect(() => {
     inputRef.current?.focus();
   }, []);
 
   const handleLogin = () => {
-    if (!username.trim()) return;
+    // validation added
+    if (!username.trim()) {
+      setError("Enter username");
+      return;
+    }
+
+    setError(""); // clear error if valid
 
     login({
       username,
@@ -37,9 +46,7 @@ const Login = () => {
 
         <div className="role-display">
           Current Role:
-          <span className="role-badge">
-            {role}
-          </span>
+          <span className="role-badge">{role}</span>
         </div>
       </header>
 
@@ -63,10 +70,18 @@ const Login = () => {
                 type="text"
                 placeholder="Enter username"
                 value={username}
-                onChange={(e) =>
-                  setUsername(e.target.value)
-                }
+                onChange={(e) => {
+                  setUsername(e.target.value);
+                  setError(""); // clear error while typing
+                }}
               />
+
+              {/* NEW ERROR MESSAGE */}
+              {error && (
+                <small className="error-text">
+                  {error}
+                </small>
+              )}
             </div>
 
             <div className="input-group">
@@ -83,17 +98,9 @@ const Login = () => {
                   )
                 }
               >
-                <option value="Admin">
-                  Admin
-                </option>
-
-                <option value="Editor">
-                  Editor
-                </option>
-
-                <option value="Viewer">
-                  Viewer
-                </option>
+                <option value="Admin">Admin</option>
+                <option value="Editor">Editor</option>
+                <option value="Viewer">Viewer</option>
               </select>
             </div>
 
