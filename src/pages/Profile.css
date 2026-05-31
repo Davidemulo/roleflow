@@ -49,3 +49,29 @@
 .profile-row:last-child {
   border-bottom: none;
 }
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 20px; 
+  }
+
+  .profile-header h1 {
+    font-size: 20px;
+  }
+
+  .profile-card h2 {
+  margin-bottom: 20px;
+   font-size: 16px;
+}
+
+
+  .card-grid {
+    gap: 16px;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+}

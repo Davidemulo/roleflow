@@ -60,3 +60,28 @@
 
   cursor: pointer;
 }
+
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .dashboard-content {
+    padding: 20px; 
+  }
+
+  .settings-header h1 {
+    font-size: 20px;
+  }
+
+  .settings-card h2 {
+  margin-bottom: 20px;
+   font-size: 16px;
+}
+
+  .card-grid {
+    gap: 16px;
+  }
+
+  .dashboard-card {
+    padding: 20px;
+  }
+}
