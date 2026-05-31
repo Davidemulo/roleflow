@@ -1,37 +1,47 @@
-import { useRef } from "react";
 import { useAuth } from "../context/AuthContext";
+import DashboardLayout from "../components/layout/DashboardLayout";
 
-export default function Profile() {
+import "./Profile.css";
+
+const Profile = () => {
   const { user } = useAuth();
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const focusInput = () => {
-    inputRef.current?.focus();
-  };
-
-  if (!user) return null;
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Profile Page</h2>
+    <DashboardLayout>
+      <div className="profile-header">
+        <h1>Profile</h1>
+        <p>Manage your account information</p>
+      </div>
 
-      <p>
-        Username: <b>{user.username}</b>
-      </p>
+      <div className="profile-card">
+        <h2>General Information</h2>
 
-      <p>
-        Role: <b>{user.role}</b>
-      </p>
+        <div className="profile-row">
+          <span>Username</span>
+          <strong>{user?.username}</strong>
+        </div>
 
-      <input
-        ref={inputRef}
-        placeholder="Update profile info (demo)"
-        style={{ display: "block", marginTop: "10px" }}
-      />
+        <div className="profile-row">
+          <span>Role</span>
+          <strong>{user?.role}</strong>
+        </div>
+      </div>
 
-      <button onClick={focusInput} style={{ marginTop: "10px" }}>
-        Focus Input (useRef demo)
-      </button>
-    </div>
+      <div className="profile-card">
+        <h2>Account Information</h2>
+
+        <div className="profile-row">
+          <span>Access Level</span>
+          <strong>{user?.role}</strong>
+        </div>
+
+        <div className="profile-row">
+          <span>Status</span>
+          <strong>Active</strong>
+        </div>
+      </div>
+    </DashboardLayout>
   );
-}
+};
+
+export default Profile;

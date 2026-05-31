@@ -1,0 +1,78 @@
+ .navbar {
+  height: 72px;
+
+  background: #fff;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 32px;
+
+  z-index: 100;
+}
+
+/* LEFT SIDE (menu + title) */
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar h2 {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* RIGHT SIDE */
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* MENU BUTTON (HAMBURGER) */
+.menu-btn {
+  display: none;
+
+  font-size: 22px;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  color: #111827;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 16px;
+  }
+
+  /* show hamburger */
+  .menu-btn {
+    display: block;
+  }
+
+  /* make title slightly smaller */
+  .navbar h2 {
+    font-size: 16px;
+  }
+
+  /* stack right side nicely */
+  .navbar-right {
+    font-size: 13px;
+    gap: 10px;
+  }
+}
+
+/* VERY SMALL MOBILE */
+@media (max-width: 480px) {
+  .navbar-right span {
+    display: none; /* optional: hides username for space */
+  }
+}

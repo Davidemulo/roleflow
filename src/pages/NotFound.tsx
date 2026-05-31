@@ -1,15 +1,25 @@
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-export default function NotFound() {
-  const navigate = useNavigate();
-
+const NotFound = () => {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>404 - Page Not Found</h2>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <h1>404</h1>
 
-      <button onClick={() => navigate("/login")}>
-        Go to Login
-      </button>
+      <h2>Page Not Found</h2>
+
+      <Link to="/login">
+        Go Back To Login
+      </Link>
     </div>
   );
-}
+};
+
+export default NotFound;

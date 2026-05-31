@@ -1,64 +1,114 @@
-import { useState, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 
-export default function Login() {
-  const { user, login } = useAuth();
+import { useAuth } from "../context/AuthContext";
+import type { UserRole } from "../types/user";
+
+import "./Login.css";
+
+const Login = () => {
   const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const [username, setUsername] = useState("");
-  const [role, setRole] = useState<"Admin" | "Editor" | "Viewer">("Viewer");
+  const [role, setRole] = useState<UserRole>("Viewer");
 
-  // If already logged in, redirect away from login page
   useEffect(() => {
-    if (user) {
-      navigate("/dashboard");
-    }
-  }, [user, navigate]);
+    inputRef.current?.focus();
+  }, []);
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-
+  const handleLogin = () => {
     if (!username.trim()) return;
 
-    login(username, role);
+    login({
+      username,
+      role,
+    });
+
     navigate("/dashboard");
   };
 
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>Login to RoleFlow</h2>
+    <div className="login-page">
+      <header className="login-navbar">
+        <h2>Roleflow</h2>
 
-      <form onSubmit={handleLogin}>
-        {/* Username Input */}
-        <div>
-          <input
-            type="text"
-            placeholder="Enter username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
+        <div className="role-display">
+          Current Role:
+          <span className="role-badge">
+            {role}
+          </span>
         </div>
+      </header>
 
-        {/* Role Selector */}
-        <div style={{ marginTop: "10px" }}>
-          <select
-            value={role}
-            onChange={(e) =>
-              setRole(e.target.value as "Admin" | "Editor" | "Viewer")
-            }
-          >
-            <option value="Admin">Admin</option>
-            <option value="Editor">Editor</option>
-            <option value="Viewer">Viewer</option>
-          </select>
+      <div className="login-container">
+        <div className="login-card">
+          <div className="login-content">
+            <h1>Welcome Back</h1>
+
+            <p className="login-subtitle">
+              Sign in to continue
+            </p>
+
+            <div className="input-group">
+              <label htmlFor="username">
+                Username
+              </label>
+
+              <input
+                id="username"
+                ref={inputRef}
+                type="text"
+                placeholder="Enter username"
+                value={username}
+                onChange={(e) =>
+                  setUsername(e.target.value)
+                }
+              />
+            </div>
+
+            <div className="input-group">
+              <label htmlFor="role">
+                Select Role
+              </label>
+
+              <select
+                id="role"
+                value={role}
+                onChange={(e) =>
+                  setRole(
+                    e.target.value as UserRole
+                  )
+                }
+              >
+                <option value="Admin">
+                  Admin
+                </option>
+
+                <option value="Editor">
+                  Editor
+                </option>
+
+                <option value="Viewer">
+                  Viewer
+                </option>
+              </select>
+            </div>
+
+            <button
+              type="button"
+              className="btn btn-primary login-btn"
+              onClick={handleLogin}
+            >
+              Login
+            </button>
+          </div>
         </div>
-
-        {/* Submit Button */}
-        <button style={{ marginTop: "10px" }} type="submit">
-          Login
-        </button>
-      </form>
+      </div>
     </div>
   );
-}
+};
+
+export default Login;

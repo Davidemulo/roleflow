@@ -1,0 +1,51 @@
+.profile-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.profile-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-content {
+  padding: 32px;
+}
+
+.profile-header {
+  margin-bottom: 24px;
+}
+
+.profile-header h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.profile-header p {
+  color: #6b7280;
+}
+
+.profile-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-card h2 {
+  margin-bottom: 20px;
+}
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.profile-row:last-child {
+  border-bottom: none;
+}

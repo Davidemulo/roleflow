@@ -1,0 +1,198 @@
+.login-page {
+  min-height: 100vh;
+  background: #fff;
+}
+
+/* NAVBAR */
+
+.login-navbar {
+  position: sticky;
+  top: 0;
+
+  height: 72px;
+
+  background: #fff;
+
+  border-bottom: 1px solid #e5e7eb;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 120px;
+
+  z-index: 100;
+}
+
+.login-navbar h2 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ROLE */
+
+.role-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+}
+
+.role-badge {
+  color: #75da36;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+/* LOGIN SECTION */
+
+.login-container {
+  min-height: calc(100vh - 160px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 24px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+
+  margin: 0 auto;
+}
+
+.login-content {
+  width: 100%;
+}
+
+.login-content h1 {
+  text-align: center;
+
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  text-align: center;
+
+  color: #6b7280;
+
+  margin-bottom: 28px;
+}
+
+/* FORM */
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 18px;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  color: #7d8086;
+}
+
+.input-group input,
+.input-group select {
+  height: 48px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+
+  padding: 0 14px;
+
+  font-size: 14px;
+
+  outline: none;
+}
+
+.input-group select {
+  padding-right: 40px;
+  cursor: pointer;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+  border-color: #9fe870;
+}
+
+.login-btn {
+  width: 100%;
+
+  margin-top: 12px;
+}
+
+/* TABLET */
+
+@media (max-width: 768px) {
+  .login-navbar {
+    padding: 0 24px;
+  }
+
+  .login-card {
+    max-width: 420px;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 480px) {
+  .login-navbar {
+    height: auto;
+    padding: 16px 20px;
+    align-items: center;
+    justify-content:space-between;
+
+    gap: 8px;
+  }
+
+  .login-navbar h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .role-display {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .login-container {
+    min-height: calc(100vh - 110px);
+
+    padding: 20px;
+  }
+
+  .login-card {
+    max-width: 100%;
+
+    padding: 0;
+  }
+
+  .login-content h1 {
+    font-size: 24px;
+  }
+
+  .login-subtitle {
+    font-size: 14px;
+  }
+
+  .input-group input,
+  .input-group select {
+    font-size: 16px;
+  }
+}

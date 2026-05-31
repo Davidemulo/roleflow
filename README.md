@@ -4,7 +4,7 @@ A dynamic role-based dashboard built with React + TypeScript demonstrating authe
 
 ---
 
-## 🚀 Features
+## Features
 
 - Fake authentication system (username + role)
 - Role-based access control:
@@ -20,7 +20,7 @@ A dynamic role-based dashboard built with React + TypeScript demonstrating authe
 
 ---
 
-## 📁 Routes
+## Routes
 
 - `/login` → Login page
 - `/dashboard` → Role-based dashboard
@@ -30,7 +30,7 @@ A dynamic role-based dashboard built with React + TypeScript demonstrating authe
 
 ---
 
-## 🔐 Authentication Flow
+## Authentication Flow
 
 1. User logs in with username and selected role
 2. User data is stored in Context API
@@ -40,7 +40,7 @@ A dynamic role-based dashboard built with React + TypeScript demonstrating authe
 
 ---
 
-## 🧠 Tech Stack
+## Tech Stack
 
 - React
 - TypeScript
@@ -50,7 +50,7 @@ A dynamic role-based dashboard built with React + TypeScript demonstrating authe
 
 ---
 
-## 📦 Setup Instructions
+## Setup Instructions
 
 ```bash
 npm install
@@ -59,7 +59,7 @@ npm run dev
 
 ---
 
-## 🧪 Demo Roles
+## Demo Roles
 
 You can test using:
 
@@ -69,12 +69,6 @@ You can test using:
 
 ---
 
-## 📸 Screens
-
-(Add screenshots here if needed)
-
----
-
-## 🧑‍💻 Author
+## Author
 
 Built as a learning project for mastering authentication, routing, and role-based UI in React.
